@@ -1,0 +1,10 @@
+fastapi[all]
+pydantic
+PyJWT
+SQLAlchemy
+passlib[bcrypt]
+requests
+pymysql
+alembic
+cryptography
+psutil
