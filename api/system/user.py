@@ -7,4 +7,4 @@ router = APIRouter()
 
 @router.get('/list')
 async def get_user():
-    return 'hello user'
+    return 'hello system'

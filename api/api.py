@@ -1,7 +1,7 @@
 from fastapi import APIRouter
-from .user import user
+from api.system import user
 
 router = APIRouter()
 
-# 引入路由
-router.include_router(router=user.router, prefix='/user', tags=['user'])
+# system模块
+router.include_router(user.router, prefix='/system', tags=['system'])
