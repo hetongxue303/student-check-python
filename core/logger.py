@@ -1,3 +1,7 @@
+"""
+日志配置
+@Author:何同学
+"""
 import os
 from loguru import logger
 from config import settings
@@ -9,6 +13,7 @@ from typing import List
 def logger_file() -> str:
     # 创建日志文件名
     log_path: str = create_dir(settings.LOGGER_DIR)
+
     # 创建文件列表
     file_list: List[str] = os.listdir(log_path)
     if len(file_list) > 3:

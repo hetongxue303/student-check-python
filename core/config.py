@@ -1,3 +1,7 @@
+"""
+全局配置
+@Author:何同学
+"""
 import secrets
 from typing import List
 from pydantic import BaseSettings, AnyHttpUrl
