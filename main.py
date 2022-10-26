@@ -21,10 +21,6 @@ app = FastAPI(
 # 事件监听注册 event
 init_event(app)
 
-# 局异常捕获全注册 exceptions
-
-# 中间件注册
-
 # 跨域注册 cors
 if settings.APP_CORS:
     app.add_middleware(
