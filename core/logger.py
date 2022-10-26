@@ -4,9 +4,10 @@
 """
 import os
 from loguru import logger
-from config import settings
 from utils.file_utils import create_dir
 from typing import List
+
+from core.config import settings
 
 
 # 创建日志文件名

@@ -1,10 +1,12 @@
-from schemas.response import success, fail
+from schemas.result import success, fail
 from fastapi import APIRouter
+
+from schemas import login
 
 router = APIRouter()
 
 
-@router.get('/list')
+@router.get('/list', response_model=login.Login, summary='列表接口')
 async def get_user():
     return success()
 

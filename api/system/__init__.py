@@ -1,2 +1,2 @@
 # 系统模块
-from schemas.response import success, fail
+from schemas.result import success, fail

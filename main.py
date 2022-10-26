@@ -8,6 +8,7 @@ from fastapi import FastAPI
 from core.config import settings
 from api.apis import router
 from core.events import init_event
+from exception.exception import init_exception
 
 # 实例化 fastapi
 app = FastAPI(
@@ -20,6 +21,9 @@ app = FastAPI(
 
 # 事件监听注册 event
 init_event(app)
+
+# 全局异常捕获注册 event
+init_exception(app)
 
 # 跨域注册 cors
 if settings.APP_CORS:

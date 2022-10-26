@@ -28,8 +28,8 @@ class Settings(BaseSettings):
     RELOAD: bool = True  # 热部署
 
     """数据源配置"""
-    REDIS_URI: str = 'redis://:123456@localhost:6379/1'  # redis
-    DATABASE_URI: str = 'mysql+asyncmy://root:123456@localhost:3306/student_check?charset=utf8'  # MySQL(异步)
+    REDIS_URI: str = 'redis://:123456@127.0.0.1:6379/1'  # redis
+    DATABASE_URI: str = 'mysql+asyncmy://root:123456@127.0.0.1:3306/student_check?charset=utf8'  # MySQL(异步)
     DATABASE_ECHO: bool = False  # 是否打印数据库日志 (可看到创建表、表数据增删改查的信息)
 
     """日志配置"""
@@ -45,7 +45,7 @@ class Settings(BaseSettings):
 
     class Config:
         env_fil: str = '.env'
-        case_sensitive: bool = True
+        case_sensitive: bool = True  # 区分大小写
 
 
 settings = Settings()
