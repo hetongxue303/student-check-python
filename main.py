@@ -1,13 +1,13 @@
 """
-程序入口类
+程序入口
 @Author:何同学
 """
 
 from starlette.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 from core.config import settings
-from api.router import router
-from core.plugin.exceptions import init_exception
+from api.apis import router
+from core.events import init_event
 
 # 实例化 fastapi
 app = FastAPI(
@@ -18,8 +18,12 @@ app = FastAPI(
     debug=settings.APP_DEBUG
 )
 
+# 事件监听注册 event
+init_event(app)
+
 # 局异常捕获全注册 exceptions
-# init_exception(app)
+
+# 中间件注册
 
 # 跨域注册 cors
 if settings.APP_CORS:

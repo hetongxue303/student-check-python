@@ -1,10 +1,14 @@
-from timeit import timeit
-
+from schemas.response import success, fail
 from fastapi import APIRouter
 
-router = APIRouter(prefix='/user')
+router = APIRouter()
 
 
 @router.get('/list')
 async def get_user():
-    return 'hello system'
+    return success()
+
+
+@router.get('/list1')
+async def get_user():
+    return fail()
