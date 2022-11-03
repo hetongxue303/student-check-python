@@ -4,7 +4,7 @@
 """
 from fastapi import APIRouter
 from api.system import user
-from . import login
+from api.login import login
 
 router = APIRouter()
 

@@ -1,16 +1,22 @@
 """
-用户表
+管理员表
 @Author:何同学
 """
-from sqlalchemy import Column, String, BigInteger, DateTime, func
+from sqlalchemy import Column, String, BigInteger, Enum, Date, text
 
-from database.mysql import Base
+from models.base import Base
 
 
-class User(Base):
+class Admin(Base):
     """用户表"""
-    id = Column(BigInteger, primary_key=True, autoincrement=True, index=True, comment='用户ID')
-    username = Column(String(100), nullable=False, index=True, comment='用户名')
-    password = Column(String(200), nullable=False, comment='用户密码')
-    create_time = Column(DateTime(timezone=True), server_default=func.now(), comment='创建时间')
-    update_time = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), comment='更新时间')
+    __table_args__ = ({"comment": "管理员表"})
+
+    id = Column(BigInteger, primary_key=True, autoincrement=True, index=True, comment='管理员ID')
+
+    name = Column(String(200), nullable=False, comment='管理员名称')
+
+    gender = Column(Enum('1', '2'), nullable=False, comment='性别')
+
+    birthday = Column(Date(), nullable=False, comment='生日')
+
+    address = Column(String(50), nullable=False, server_default=text("'重庆市渝北区'"), comment='地址')

@@ -9,7 +9,7 @@ from core.config import settings
 from api.apis import router
 from core.events import init_event
 from exception.exception import init_exception
-from database.mysql import init_db
+from database.mysql import init_db, drop_db
 
 # 实例化 fastapi
 app = FastAPI(
@@ -27,8 +27,9 @@ init_event(app)
 init_exception(app)
 
 # 初始化表结构
+drop_db()
 init_db()
-
+# Base.metadata.create_all(engine)
 # 跨域注册 cors
 if settings.APP_CORS:
     app.add_middleware(

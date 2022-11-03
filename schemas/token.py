@@ -1,6 +1,13 @@
+from typing import Optional, List
+
 from pydantic import BaseModel
 
 
-class Login(BaseModel):  # 登陆模型
-    username: str
-    password: str
+class Token(BaseModel):
+    """ token """
+    access_token: str
+    token_type: str
+
+
+class TokenData(BaseModel):
+    username: str | None = None
