@@ -2,19 +2,23 @@
 教师表
 @Author:何同学
 """
-from sqlalchemy import Column, String, BigInteger
+from sqlalchemy import Column, String, BigInteger, Enum, Date, text
 
-from models.base import Base
+from models import Base
 
 
 class Teacher(Base):
-    """用户表"""
+    """ 教师表 """
     __table_args__ = ({"comment": "教师表"})
 
     id = Column(BigInteger, primary_key=True, autoincrement=True, index=True, comment='教师ID')
 
-    username = Column(String(100), nullable=False, comment='用户名')
+    no = Column(String(10), nullable=False, comment='教师工号')
 
-    password = Column(String(200), nullable=False, comment='用户密码')
+    name = Column(String(100), nullable=False, comment='教师姓名')
 
-    last_login_ip = Column(String(50), nullable=False, comment='最后登录IP')
+    gender = Column(Enum('1', '2'), nullable=False, comment='教师性别')
+
+    birthday = Column(Date(), nullable=False, comment='教师生日')
+
+    address = Column(String(50), nullable=False, server_default=text("'重庆市渝北区'"), comment='地址')

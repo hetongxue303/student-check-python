@@ -10,5 +10,3 @@ router = APIRouter()
 
 # system模块
 router.include_router(user.router, prefix='/user', tags=['系统模块'])
-
-router.include_router(login.router, tags=['登录模块'])

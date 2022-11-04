@@ -1,10 +1,15 @@
+"""
+基类表
+@Author:何同学
+"""
 from sqlalchemy.ext.declarative import as_declarative, declared_attr
+
 from sqlalchemy import Column, DateTime, func
 
 
 @as_declarative()
 class Base:
-    """基类表"""
+    """ 基类表 """
     __name__: str  # 表名
 
     __table_args__ = {'mysql_charset': 'utf8', 'extend_existing': True}  # 设置表的字符集，表覆盖

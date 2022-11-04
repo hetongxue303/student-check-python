@@ -5,7 +5,7 @@ from jose import jwt, JWTError
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
 from starlette import status
-from models.user import User
+from models.account import User
 from database.mysql import get_db
 from schemas.token import TokenData
 

@@ -4,11 +4,11 @@
 """
 from sqlalchemy import Column, String, BigInteger, Enum, Date, text
 
-from models.base import Base
+from models import Base
 
 
 class Admin(Base):
-    """用户表"""
+    """ 管理员表 """
     __table_args__ = ({"comment": "管理员表"})
 
     id = Column(BigInteger, primary_key=True, autoincrement=True, index=True, comment='管理员ID')
