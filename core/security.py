@@ -5,7 +5,7 @@ from jose import jwt, JWTError
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
 from starlette import status
-from models.account import User
+from models.account import Account
 from database.mysql import get_db
 from schemas.token import TokenData
 
@@ -16,12 +16,12 @@ oauth2 = OAuth2PasswordBearer(tokenUrl="/login")
 crypt = CryptContext(schemes=["bcrypt"], deprecated="auto")  # 实例化加密器
 
 
-def get_user(username: str, db: Session = Depends(get_db())) -> User:  # 获取用户信息
-    return db.query(User).filter(User.username == username).first()
+def get_user(username: str, db: Session = Depends(get_db())) -> Account:  # 获取用户信息
+    return db.query(Account).filter(Account.username == username).first()
 
 
-def authenticate_user(username: str, password: str) -> User | bool:  # 认证用户
-    user: User = get_user(username)
+def authenticate_user(username: str, password: str) -> Account | bool:  # 认证用户
+    user: Account = get_user(username)
     if not user:  # 是否存在用户
         return False
     if not verify_password(password, user.password):  # 校验密码

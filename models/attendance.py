@@ -2,7 +2,7 @@
 考勤表
 @Author:何同学
 """
-from sqlalchemy import BigInteger, Column, String, Integer, Enum, DateTime
+from sqlalchemy import BigInteger, Column, String, Integer, Enum, DateTime, ForeignKey
 
 from models import Base
 
@@ -14,3 +14,5 @@ class Attendance(Base):
     id = Column(BigInteger, primary_key=True, autoincrement=True, index=True, comment='考勤ID')
 
     status = Column(Enum('0', '1'), nullable=False, server_default='0', comment='状态(0未考勤 1已考勤)')
+
+    student_id = Column(BigInteger, ForeignKey('student.id'), comment='学生ID')

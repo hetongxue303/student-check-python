@@ -15,7 +15,7 @@ class Admin(Base):
 
     name = Column(String(200), nullable=False, comment='管理员名称')
 
-    gender = Column(Enum('1', '2'), nullable=False, comment='性别')
+    gender = Column(Enum('1', '2'), server_default='1', nullable=False, comment='性别(1男2女)')
 
     birthday = Column(Date(), nullable=False, comment='生日')
 

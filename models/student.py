@@ -18,8 +18,12 @@ class Student(Base):
 
     name = Column(String(200), nullable=False, comment='学生姓名')
 
-    gender = Column(Enum('1', '2'), nullable=False, comment='学生性别')
+    gender = Column(Enum('1', '2'), server_default='1', nullable=False, comment='学生性别(1男2女)')
 
     birthday = Column(Date(), nullable=False, comment='学生生日')
 
     address = Column(String(50), nullable=False, server_default=text("'重庆市渝北区'"), comment='地址')
+
+    major_id = Column(BigInteger, ForeignKey('major.id'), comment='专业ID')
+
+    department_id = Column(BigInteger, ForeignKey('department.id'), comment='院系ID')

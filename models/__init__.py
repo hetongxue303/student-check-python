@@ -4,12 +4,14 @@
 """
 from models.base import *
 from models.account import *
+from models.account_role import *
 from models.department import *
 from models.major import *
 from models.admin import *
 from models.student import *
 from models.teacher import *
-from models.role import *
 from models.course import *
+from models.teacher_course import *
+from models.role import *
 from models.elective import *
 from models.attendance import *
